@@ -1,0 +1,8 @@
+class Solution {
+  public:
+    void rotateArr(vector<int>& arr, int d) {
+        d=d%arr.size();
+        rotate(arr.begin(),arr.begin()+d,arr.end());
+        
+    }
+};
