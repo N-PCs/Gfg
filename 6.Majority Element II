@@ -1,0 +1,22 @@
+#include <algorithm>
+class Solution {
+  public:
+    // Function to find the majority elements in the array
+    vector<int> findMajority(vector<int>& arr) {
+        unordered_set <int> s;
+        unordered_map <int,int> freq;
+        int n=arr.size();
+        
+        for(int i:arr){
+            freq[i]++;
+        }
+        for ( int i :arr){
+            if(freq[i]>(n/3)){
+                s.insert(i);
+            }
+        }
+        vector <int> d(s.begin(),s.end());
+        sort(d.begin(),d.end());
+        return d;
+    }
+};
