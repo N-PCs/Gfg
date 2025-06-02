@@ -1,0 +1,22 @@
+// User function Template for C++
+class Solution {
+  public:
+    // Function to find maximum product subarray
+    int maxProduct(vector<int> &arr) {
+        int n=arr.size();
+        if(n==0){
+            return 0;
+        }
+        int maxP=arr[0];
+        int minP=arr[0];
+        int res=arr[0];
+        for (int i=1;i<n;i++){
+            int current=arr[i];
+            int temp=max(current,max(maxP*current,minP*current));
+            minP=min(current,min(maxP*current,minP*current));
+            maxP=temp;
+            res=max(res,maxP);
+        }
+        return res;
+    }
+};
