@@ -1,0 +1,33 @@
+#include <algorithm>
+#include <vector>
+using namespace std;
+class Solution {
+  public:
+    int circularSubarraySum(vector<int> &arr) {
+    int n=arr.size();
+    if(n==0){
+        return 0;
+    }
+    int max_c=arr[0];
+    int max_g=arr[0];
+    for(int i=1;i<n;i++){
+        max_c=max(arr[i],max_c+arr[i]);
+        max_g=max(max_g,max_c);
+    }
+    int total=0;
+    for (int num:arr){
+        total+=num;
+    }
+    int min_c=arr[0];
+    int min_g=arr[0];
+    for(int i=1;i<n;i++){
+        min_c=min(arr[i],min_c+arr[i]);
+        min_g=min(min_g,min_c);
+    }
+    int max_circular=total-min_g;
+    if(max_circular==0){
+        return max_g;
+    }
+    return max(max_g,max_circular);
+    }
+};
