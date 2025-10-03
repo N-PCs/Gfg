@@ -4,6 +4,7 @@ class Solution {
         if(arr.size()<2){
             return -1;
         }
+
         int largest = -1;
         int second=-1;
         for (int num:arr){
