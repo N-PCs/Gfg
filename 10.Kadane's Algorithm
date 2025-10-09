@@ -2,9 +2,11 @@
 class Solution {
   public:
     int maxSubarraySum(vector<int> &arr) {
+
         if (arr.empty()){
             return 0;
         }
+
         int current=arr[0];
         int global=arr[0];
         for(int i=1;i<arr.size();i++){
@@ -13,6 +15,7 @@ class Solution {
                 global=current;
             }
         }
+
         return global;
         
     }
